@@ -13,4 +13,9 @@ class VariantesController extends Controller
         $variantes = Variante::select('id','lineage','common_countries','earliest_date','designed_number','assigned_number','who_name')->orderBy('id','DESC')-> limit(20)->get();
         return $variantes;
     }
+
+    public function show($id){
+        $variantes = Variante::select('id','description','evidence')->where('id',$id)->first();
+        return $variantes;
+    }
 }
